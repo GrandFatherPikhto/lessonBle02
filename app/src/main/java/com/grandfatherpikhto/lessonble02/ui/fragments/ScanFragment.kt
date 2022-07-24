@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.grandfatherpikhto.blin.BleScanManager
 import com.grandfatherpikhto.lessonble02.LessonBle02App
 import com.grandfatherpikhto.lessonble02.R
-import com.grandfatherpikhto.lessonble02.databinding.FragmentScannerBinding
+import com.grandfatherpikhto.lessonble02.databinding.FragmentScanBinding
 import com.grandfatherpikhto.lessonble02.helper.linkMenu
 import com.grandfatherpikhto.lessonble02.ui.adapters.RvBtAdapter
 import com.grandfatherpikhto.lessonble02.ui.models.BleViewModelFactory
@@ -23,9 +23,9 @@ import kotlinx.coroutines.launch
 /**
  * A simple [Fragment] subclass as the default destination in the navigation.
  */
-class ScannerFragment : Fragment() {
+class ScanFragment : Fragment() {
 
-    private var _binding: FragmentScannerBinding? = null
+    private var _binding: FragmentScanBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -84,7 +84,7 @@ class ScannerFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        _binding = FragmentScannerBinding.inflate(inflater, container, false)
+        _binding = FragmentScanBinding.inflate(inflater, container, false)
 
         linkMenu(true, menuProvider)
 

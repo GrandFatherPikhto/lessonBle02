@@ -7,9 +7,9 @@
 
     <fragment
         android:id="@+id/ScanFragment"
-        android:name="com.grandfatherpikhto.lessonble02.ui.fragments.ScannerFragment"
+        android:name="com.grandfatherpikhto.lessonble02.ui.fragments.ScanFragment"
         android:label="@string/scanner_fragment_label"
-        tools:layout="@layout/fragment_scanner">
+        tools:layout="@layout/fragment_scan">
 
         <action
             android:id="@+id/action_ScanFragment_to_DeviceFragment"

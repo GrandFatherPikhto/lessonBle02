@@ -66,7 +66,6 @@ class BcScanReceiver constructor(private val bleScanManager: BleScanManager, dis
         return null
     }
 
-
     override fun onReceive(context: Context?, intent: Intent?) {
         if ( context != null && intent != null ) {
             when (intent.action) {

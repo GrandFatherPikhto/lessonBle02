@@ -88,7 +88,7 @@ class BleScanManager constructor(private val context: Context, dispatcher: Corou
 
     fun onReceiveError(errorCode: Int) {
         mutableStateFlowError.tryEmit(errorCode)
-
+        stopScan()
     }
 
     fun onReceiveScanResult(scanResult: ScanResult) {
