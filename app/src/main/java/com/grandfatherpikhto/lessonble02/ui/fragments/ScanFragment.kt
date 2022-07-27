@@ -31,11 +31,7 @@ class ScanFragment : Fragment() {
     // onDestroyView.
     private val binding get() = _binding!!
 
-    private val _bleScanManager:BleScanManager? by lazy {
-        (requireContext().applicationContext as LessonBle02App)
-            .bleScanManager
-    }
-    private val bleScanManager get() = _bleScanManager!!
+    private lateinit var bleScanManager: BleScanManager
 
     private val mainActivityViewModel by activityViewModels<MainActivityViewModel>()
     private val scannerViewModel by viewModels<ScannerViewModel> {
@@ -85,6 +81,9 @@ class ScanFragment : Fragment() {
     ): View? {
 
         _binding = FragmentScanBinding.inflate(inflater, container, false)
+
+        bleScanManager =
+            (requireContext().applicationContext as LessonBle02App).bleScanManager!!
 
         linkMenu(true, menuProvider)
 

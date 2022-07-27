@@ -56,21 +56,7 @@ class BleScanManager constructor(private val context: Context, dispatcher: Corou
     private val scanFilters = mutableListOf<ScanFilter>()
     private val scanSettingsBuilder = ScanSettings.Builder()
 
-    private var scanIdling:ScanIdling? = null
-    fun getScanIdling() : ScanIdling {
-        val idling = ScanIdling.getInstance()
-        if (scanIdling == null) {
-            scanIdling = idling
-            scope.launch {
-                scanIdling?.let { idling ->
-                    sharedFlowScanResult.collect {
-                        idling.scanned = true
-                    }
-                }
-            }
-        }
-        return idling
-    }
+    fun getScanIdling() = ScanIdling.getInstance(this)
 
     init {
         initScanSettings()
