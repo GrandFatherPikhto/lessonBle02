@@ -3,7 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable/ic_connect.xml" value="0.1565" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.17760416666666667" />
+        <entry key="app/src/main/res/layout/content_main.xml" value="0.17760416666666667" />
         <entry key="app/src/main/res/layout/fragment_device.xml" value="0.1381340579710145" />
         <entry key="app/src/main/res/layout/fragment_scanner.xml" value="0.17760416666666667" />
         <entry key="app/src/main/res/layout/layout_ble_device.xml" value="0.25" />

@@ -2,100 +2,118 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cl_ble_device_main"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginLeft="4dp"
     android:layout_marginTop="4dp"
-    android:layout_marginRight="4dp"
-    android:background="@android:drawable/screen_background_dark">
+    android:layout_marginRight="4dp">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/cl_ble_description"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/cl_ble_properties"
-        app:layout_constraintHorizontal_bias="0.5"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cv_ble_device"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="@color/blue_500"
+        app:cardCornerRadius="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/cl_ble_description"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:id="@+id/tv_ble_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:shadowColor="@color/white"
-            android:text="@string/ble_unknown_name"
-            android:textColor="@color/white"
-            app:layout_constraintBottom_toTopOf="@+id/tv_ble_address"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_ble_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-        <TextView
-            android:id="@+id/tv_ble_address"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/ble_default_address"
-            android:textColor="@color/white"
-            android:textSize="20sp"
-            app:layout_constraintBottom_toTopOf="@+id/tv_ble_rssi"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_ble_name" />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl_ble_properties"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/cl_ble_description"
+                app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:id="@+id/tv_ble_rssi"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/ble_rssi_title"
-            android:textColor="@color/white"
-            android:textSize="20sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_ble_address" />
+                <ImageView
+                    android:id="@+id/iv_connectable"
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
+                    android:layout_margin="4dp"
+                    android:contentDescription="@string/description_connectable"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/iv_paired"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/ic_no_connectable" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+                <ImageView
+                    android:id="@+id/iv_paired"
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
+                    android:layout_margin="4dp"
+                    android:contentDescription="@string/description_paired"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/iv_connectable"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/ic_unpaired" />
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/cl_ble_properties"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/cl_ble_description"
-        app:layout_constraintTop_toTopOf="parent">
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <ImageView
-            android:id="@+id/iv_connectable"
-            android:layout_width="64dp"
-            android:layout_height="64dp"
-            android:layout_margin="4dp"
-            android:contentDescription="@string/description_connectable"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/iv_paired"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_no_connectable" />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl_ble_description"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/cl_ble_properties"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
-        <ImageView
-            android:id="@+id/iv_paired"
-            android:layout_width="64dp"
-            android:layout_height="64dp"
-            android:layout_margin="4dp"
-            android:contentDescription="@string/description_paired"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/iv_connectable"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_unpaired" />
+                <TextView
+                    android:id="@+id/tv_ble_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:shadowColor="@color/white"
+                    android:text="@string/ble_unknown_name"
+                    android:textColor="@color/white"
+                    app:layout_constraintBottom_toTopOf="@+id/tv_ble_address"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+                <TextView
+                    android:id="@+id/tv_ble_address"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/ble_default_address"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    app:layout_constraintBottom_toTopOf="@+id/tv_ble_rssi"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_ble_name" />
+
+                <TextView
+                    android:id="@+id/tv_ble_rssi"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/ble_rssi_title"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_ble_address" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
